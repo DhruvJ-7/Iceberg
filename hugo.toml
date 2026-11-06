@@ -1,5 +1,41 @@
-baseURL = 'https://example.org/'
-locale = 'en-us'
-title = 'My New Hugo Project'
-
+baseURL = 'https://DhruvJ-7.github.io/Iceberg.github.io/'
+languageCode = 'en-us'
+title = 'Iceberg'
 theme = 'PaperMod'
+
+[params]
+  author = "Dhruv"
+  description = "Explorations in Mathematics, History, and Science"
+  ShowReadingTime = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+
+# Homepage Header Setup
+[params.homeInfoParams]
+  Title = "Iceberg"
+  Content = "Reading about new subjects and writing down what I learn — math, history, and everything in between."
+
+[[params.socialIcons]]
+  name = "instagram"
+  url = "https://www.instagram.com/dhruv.jain.49"
+ 
+
+# Top Navigation Bar Menu
+[[menu.main]]
+  name = "Posts"
+  url = "posts/"
+  weight = 10
+
+[[menu.main]]
+  name = "Tags"
+  url = "tags/"
+  weight = 20
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['$$', '$$']]
+          inline = [['$', '$']]

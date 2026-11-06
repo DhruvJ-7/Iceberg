@@ -1,0 +1,5 @@
+function pub {
+    git add .
+    git commit -m "Publish post"
+    git push
+}

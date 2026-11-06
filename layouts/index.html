@@ -1,0 +1,45 @@
+{{ define "main" }}
+<!-- Compact Hero Section -->
+<section style="margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem;">
+    <h1 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--primary);">{{ .Site.Title }}</h1>
+    <p style="font-size: 1.05rem; opacity: 0.8; margin: 0; max-width: 650px;">{{ .Site.Params.description }}</p>
+</section>
+
+<!-- Categorized Directory Grid -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+  {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+    <section style="
+        background: var(--entry);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 1.25rem 1.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: transform 0.15s ease-in-out;
+    ">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 0.6rem; margin-bottom: 1rem;">
+        <h2 style="margin: 0; font-size: 1.25rem; font-weight: 600; text-transform: capitalize;">
+          <a href="{{ $taxonomy.Page.RelPermalink }}" style="color: var(--primary); box-shadow: none;">
+            # {{ $name }}
+          </a>
+        </h2>
+        <span style="font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 12px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-weight: 600;">
+          {{ len $taxonomy.Pages }} {{ if eq (len $taxonomy.Pages) 1 }}post{{ else }}posts{{ end }}
+        </span>
+      </div>
+
+      <ul style="list-style: none; padding-left: 0; margin: 0;">
+        {{ range $taxonomy.Pages }}
+          <li style="margin-bottom: 0.75rem; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;">
+            <a href="{{ .RelPermalink }}" style="font-size: 1rem; font-weight: 500; color: var(--primary); text-decoration: none; line-height: 1.4;">
+              {{ .Title }}
+            </a>
+            <span style="font-size: 0.8rem; opacity: 0.6; font-family: monospace; white-space: nowrap;">
+              {{ .Date.Format "Jan 02" }}
+            </span>
+          </li>
+        {{ end }}
+      </ul>
+    </section>
+  {{ end }}
+</div>
+{{ end }}

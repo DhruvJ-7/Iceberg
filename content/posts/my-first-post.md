@@ -3,6 +3,8 @@ title: "Math and History Notes"
 date: 2026-11-05
 draft: false
 tags: ["math", "history"]
+math : true
+summary : Introspection into the math world 
 ---
 
 Welcome to my personal reading and writing space!
@@ -13,4 +15,4 @@ Here is a quick equation check:
 $$e^{i\pi} + 1 = 0$$
 
 ## A Note on History
-Writing down thoughts on past events alongside mathematical insights.
+Writing down thoughts on past events alongside mathematical insights. Habibi
